@@ -30,10 +30,14 @@ def act_else(sentence):
 
 
 def main():
-    print(act_star('hows it going? brah'))
-    print(act_squid('diuqs squid'))
-    print(act_sponge('bla foo blip Bla'))
-    print(act_else('peace a'))
+    # A dictionary the alien name and act function
+    alien_type = {'star': act_star, 'squid': act_squid, 'sponge': act_sponge}
+    alien, sentence = input('Pick an alien: '), input('What does it says? ')
+    # If the alien in the dictionary call the function with the input sentence
+    try:
+        print(alien_type.get(alien.lower())(sentence))
+    except:
+        print(act_else(sentence))
 
 
 if __name__ == '__main__':
